@@ -1,0 +1,4 @@
+made a react project using vite : npm create vite@latest client . (js + swt)
+npm install
+add tailwind in project : "google tailwind css vite" -> goto first website and do all the steps on the website.
+clean the index.css , app.css and some clutter from app.jsx
