@@ -6,3 +6,8 @@ then install mongoose,
 go to mongodb website and signin to mongodb atlas, after setting up , create a new project in mongodb atlas. then go to database under the deployment tab and build a database (free).
 give the network access to everyone on the mongodb atlas website. then go the 'database' then 'connect' then "drivers" and copy the url.
 then change the url that is give the password and give the name of the db before '?' if you dont give any name mongodb will itselt make a db name test
+
+
+to create and add user model
+- we create model to interct with db
+create models folder in the server
