@@ -11,3 +11,22 @@ then change the url that is give the password and give the name of the db before
 to create and add user model
 - we create model to interct with db
 create models folder in the server
+
+to create api route (api route is kind of url, we can use these url to interact with api)
+- we can make api in the index.js but we make them in another folder in server namely routes.
+after we make the file inside the routes, we import the file inside the index.js file to access it
+
+we create controllers folders and inside this we are going to write the api route logic, then we export it and import it in router.js file and use the controller:
+this : 
+<!-- router.get("/", (req, res) => {
+    res.json({
+    message: "Api is working",
+    });
+}); -->
+becomes: <!-- router.get("/", test); -->
+where test is defined in controller folder insider userCtrl.js file : 
+<!-- export const test = (req, res) => {
+    res.json({
+        message: 'Api is working',
+    });
+}; -->
