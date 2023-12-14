@@ -1,0 +1,3 @@
+run this command in the mern auth (root folder) folder : npm init -y then install express
+then make a server folder and create a folder inside it named index.js,
+then go to package.json and under 'description' and above 'main' write : "type": "module"

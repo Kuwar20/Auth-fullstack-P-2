@@ -5,10 +5,12 @@ import About from "./pages/About"; // app.js and home.js are in the same folder
 import SignIn from "./pages/SignIn"; // app.js and home.js are in the same folder
 import SignUp from "./pages/SignUp"; // app.js and home.js are in the same folder
 import Profile from "./pages/Profile"; // app.js and home.js are in the same folder
+import Header from "./components/Header"
 
 const App = () => {
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
