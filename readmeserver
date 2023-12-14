@@ -1,3 +1,8 @@
 run this command in the mern auth (root folder) folder : npm init -y then install express
 then make a server folder and create a folder inside it named index.js,
 then go to package.json and under 'description' and above 'main' write : "type": "module"
+
+then install mongoose,
+go to mongodb website and signin to mongodb atlas, after setting up , create a new project in mongodb atlas. then go to database under the deployment tab and build a database (free).
+give the network access to everyone on the mongodb atlas website. then go the 'database' then 'connect' then "drivers" and copy the url.
+then change the url that is give the password and give the name of the db before '?' if you dont give any name mongodb will itselt make a db name test
