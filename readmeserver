@@ -30,3 +30,7 @@ where test is defined in controller folder insider userCtrl.js file :
         message: 'Api is working',
     });
 }; -->
+
+how to encrypt password in the db:
+install bcrypt, then import it in authctrl.js where we are creating a new user and saving it in the db.
+save the password in hash password, then send the db the hashpasssword(code is commented in cuthctrl.js)
