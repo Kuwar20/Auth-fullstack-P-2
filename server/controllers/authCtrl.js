@@ -1,8 +1,11 @@
 import User from "../models/userSchema.js";
 import bcryptjs from "bcryptjs";
+import { errorHandler } from "../utils/error.js";
 //dont install bcrypt, install bcryptjs because bcrypt gives error in production
 
-export const signup = async (req, res) => {
+
+export const signup = async (req, res, next) => {  // with next middlewear , also change the catch of try catch
+// export const signup = async (req, res) => {   //this was earlier without midddlewear
     console.log(req.body);
     // if we check this in postman, we will get the undefind in console even if we send the data in body
     // that is because by default we can not send any json to our server, we need to add some middleware
@@ -24,6 +27,8 @@ export const signup = async (req, res) => {
         await newUser.save(); //5. this will save the data in database, how to hit
         res.status(201).json({ message: "User created successfully" });
     } catch (error) {
-        res.status(500).json(error.message);
+        // res.status(500).json(error.message);// this was replaced with middlewear respone because we want our response like that
+        //next(error); // or we can make a custom error handler in utils/error.js and use it here like this
+        next(errorHandle);
     }
 };

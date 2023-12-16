@@ -36,7 +36,18 @@ app.use("/api/user", userRoutes); // we exported router but we can import differ
 // it can be checked on  http://localhost:3000/api/user
 //When you access http://localhost:3000/api/user, the request will be handled by the route defined in router.js, which, in turn, calls the test function from the userCntrl.js controller. The controller then sends a JSON response back to the client.
 
-
 app.use("/api/auth", authRoutes);
 //1. this is not independent, go to authRoute.js in routes and check the code there, especially the router.() line
 //1.1. also import authRoutes from "./routes/authRoute.js";
+
+app.use((err, req, res, next) => {
+        const statusCode = err.statusCode || 500;
+        const message = err.message || 'internal server error';
+        return res.status(statusCode).json({
+        success:false,
+        message,
+        statusCode,
+        });
+}); // this is error handling middleware, it will catch all the errors and send it to the client))
+//now go to authctrl.js and change the server api fn of the signup route from authroute.js with this 'next' middlewear.
+// to check this middlewear we can use next in a api call and check it in postman, the api response should give error in this format.

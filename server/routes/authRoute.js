@@ -4,6 +4,8 @@ import { signup } from "../controllers/authCtrl.js";
 
 const router = express.Router();
 
+
+// this is signup api for our app
 router.post("/signup" ,signup)
 //now this is combined with app.use(api/auth) from index.js
 // and it become http://localhost:3000/api/auth/signup check it on postman
