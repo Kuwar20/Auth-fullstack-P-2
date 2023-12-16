@@ -29,6 +29,6 @@ export const signup = async (req, res, next) => {  // with next middlewear , als
     } catch (error) {
         // res.status(500).json(error.message);// this was replaced with middlewear respone because we want our response like that
         //next(error); // or we can make a custom error handler in utils/error.js and use it here like this
-        next(errorHandle);
+        next(errorHandler);
     }
 };
