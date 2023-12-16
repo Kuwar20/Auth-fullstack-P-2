@@ -6,7 +6,7 @@ import { errorHandler } from "../utils/error.js";
 
 export const signup = async (req, res, next) => {  // with next middlewear , also change the catch of try catch
 // export const signup = async (req, res) => {   //this was earlier without midddlewear
-    console.log(req.body);
+    // console.log(req.body); // this will give output in console
     // if we check this in postman, we will get the undefind in console even if we send the data in body
     // that is because by default we can not send any json to our server, we need to add some middleware
     // we add this middlewear in server/index.js and write: app.use(express.json()); // this is the middleware that will allow us to send json data to our server

@@ -48,3 +48,45 @@ this tells that http://localhost:5173/ will be reached/redirected if you click o
 
 
 ****************************************************************************************************************
+
+****************************************************************************************
+to connect frontend with backend (in signup page) : 
+we use fetch api to connect frontend with backend, we send data from frontend to backend using fetch api and get data from backend by storing it in a variable and then using it in frontend.
+but we need to make sure that backend is running on some port and frontend is running on some other port, so we use proxy in package.json of frontend in npm / proxy in vite.config.js in vite to tell the frontend that backend is running on this port.
+
+ex:
+<!-- 
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000', // to fix the CORS issue
+        secure: false,
+      },
+    },
+  },
+});
+-->
+
+// each time we make a request to /api, it will be redirected to http://localhost:3000/
+
+and to make a post request with data from the frontend we need to do this in the frontend page from where we are calling the api:
+
+<!-- const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/api/auth/signup", {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),  
+    });
+    const data = await response.json();
+    console.log(data);{message: "User created successfully"}
+  };
+ -->
+
+tip: keep salt value 12 in authctrl.js of password through bcrypt in backend
+
+*****************************************************************************************
