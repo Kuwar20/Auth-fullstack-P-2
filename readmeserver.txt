@@ -46,3 +46,10 @@ lets make the signin page and connect it to api(backend):
 - then make the signin function in the folder server -> controllers -> authctrl.js
 
 - now check the api route in postman
+
+2) make frontend
+
+- go to client -> src -> pages -> signin.js
+ and make the page 
+
+ - make the frontend, then connect it with backend using fetch .

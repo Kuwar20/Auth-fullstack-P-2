@@ -90,3 +90,15 @@ and to make a post request with data from the frontend we need to do this in the
 tip: keep salt value 12 in authctrl.js of password through bcrypt in backend
 
 *****************************************************************************************
+
+when we sign in we are getting this in response, check it in network then response :
+{
+    "_id": "657d31875a1507c60c38e5c0",
+    "username": "test1",
+    "email": "test1@test.com",
+    "createdAt": "2023-12-16T05:11:35.768Z",
+    "updatedAt": "2023-12-16T05:11:35.768Z",
+    "__v": 0
+}
+
+and now we want to save this infornation in a global variable and use it in our web app anywhere we need

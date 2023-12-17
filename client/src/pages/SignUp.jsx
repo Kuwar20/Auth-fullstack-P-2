@@ -1,11 +1,11 @@
-import { set } from "mongoose";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false); // for the loading spinner effect
+  const navigate = useNavigate();  // this is for redirecting the user to the home page after signing in
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -17,7 +17,7 @@ const SignUp = () => {
     // the fetch below will give the CORS error because we are trying to connect to the backend (port: 3000) from the frontend (port: 5173). To fix this, we need to add a proxy in the package.json file in the client folder or change vite.config.js proxy. The proxy will tell the frontend to connect to the backend.
     // const response = await fetch("http://localhost:3000/api/auth/signup", formData); // here we are connecting to the backend. when we submit the form, we are sending the data to the backend
     // after adding the proxy in vite.config.js, we can remove the localhost:3000 from the fetch below and we are free from cors issues
-    
+
     try {
       setLoading(true); // when we submit the form, we want to show the loading spinner
       setError(false);
@@ -36,6 +36,7 @@ const SignUp = () => {
         setError(true); // if we get a response from the backend, we want to hide the error message
         return;
       }
+      navigate('/sign-in'); // if everything goes well, we want to redirect the user to the sign in page
     } catch (error) {
       setLoading(false); // but if we get an error, we want to hide the loading spinner
       setError(true); // and show the error message
