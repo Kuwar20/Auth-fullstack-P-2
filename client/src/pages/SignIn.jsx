@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signInStart, signInSuccess, signInFailure } from "../redux/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false); // for the loading spinner effect
+  //const [error, setError] = useState(false);  // both (error,handling) of these are now handled by redux toolkit
+  //const [loading, setLoading] = useState(false); // for the loading spinner effect
+  // we can destructure both error and loading 
+  const { error, loading } = useSelector((state) => state.user); // we are getting the error and loading from the user slice in the redux store
   const navigate = useNavigate();  // this is for redirecting the user to the home page after signing in
-
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -19,8 +23,11 @@ const SignIn = () => {
     // after adding the proxy in vite.config.js, we can remove the localhost:3000 from the fetch below and we are free from cors issues
 
     try {
-      setLoading(true); // when we submit the form, we want to show the loading spinner
-      setError(false);
+      // setLoading(true); // when we submit the form, we want to show the loading spinner
+      // setError(false); // now instead of this we will be using redux toolkit
+
+      dispatch(signInStart()); // this is the action creator we created in redux toolkit
+
       // this is equivalent to the post request we do in postman, where we provide the url, method ( post here ), and body (data in json format)
       // from server.js to authRoute.js to authController.js we are taking that api link and connecting to the database from here (client side/frontend)
       const response = await fetch("/api/auth/signin", {
@@ -32,15 +39,19 @@ const SignIn = () => {
       }); // here we are connecting to the backend. when we submit the form, we are sending the data to the backend
       const data = await response.json(); // we need to convert the response from the backend to json to be able to read it.
       //console.log(data);{message: "User created successfully"}
-      setLoading(false); // when we get the response from the backend, we want to hide the loading spinner
+      // setLoading(false); // when we get the response from the backend, we want to hide the loading spinner
+      
       if (data.success === false) {
-        setError(true); // if we get a response from the backend, we want to hide the error message
+        //setError(true); // if we get a response from the backend, we want to hide the error message
+        dispatch(signInFailure(data)); // this is the action creator we created in redux toolkit
         return;
       }
+      dispatch(signInSuccess(data)); // this is the action creator we created in redux toolkit
       navigate("/"); // if we get a response from the backend, we want to redirect the user to the home page
     } catch (error) {
-      setLoading(false); // but if we get an error, we want to hide the loading spinner
-      setError(true); // and show the error message
+      //setLoading(false); // but if we get an error, we want to hide the loading spinner
+      //setError(true); // and show the error message
+      dispatch(signInFailure(error)); // this is the action creator we created in redux toolkit
     }
   };
 
@@ -75,7 +86,7 @@ const SignIn = () => {
           <span className="text-blue-500">Sign Up</span>
         </Link>
       </div>
-      <p className="text-red-700 mt-5">{error && "Something went wrong!"}</p>
+      <p className="text-red-700 mt-5">{error ? error.message || "Something went wrong!": ''}</p>
     </div>
   );
 };
