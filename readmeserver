@@ -34,3 +34,15 @@ where test is defined in controller folder insider userCtrl.js file :
 how to encrypt password in the db:
 install bcrypt, then import it in authctrl.js where we are creating a new user and saving it in the db.
 save the password in hash password, then send the db the hashpasssword(code is commented in cuthctrl.js)
+
+
+********************************************************
+lets make the signin page and connect it to api(backend):
+
+1) make backend
+
+- go to server -> routes -> authRoute.js : make a route for signin,
+
+- then make the signin function in the folder server -> controllers -> authctrl.js
+
+- now check the api route in postman
