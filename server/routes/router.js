@@ -1,5 +1,5 @@
 import express from "express";
-import { test, updateUser } from "../controllers/userCntrl.js";
+import { test, updateUser, deleteUser } from "../controllers/userCntrl.js";
 import { verifyToken } from "../utils/verifyUser.js";
 const router = express.Router();
 
@@ -26,5 +26,9 @@ router.post("/update/:id", verifyToken, updateUser);
 // this will update the username of the user with id 657d31875a1507c60c38e5c0
 // if we try to upate the user with different id then it will give error
 // lastly verifyToken is a middleware in utils folder
+
+router.delete("/delete/:id", verifyToken, deleteUser);
+
+
 
 export default router;
