@@ -58,7 +58,7 @@ const Profile = () => {
         />
         {/*  accept="image/*" means that the file input will only accept image files. but still we can choose all files option int the upload input windows, so to prevent it we use firebase storage */}
         <img
-          src={currentUser.profilePicture}
+          src={formData.profilePicture || currentUser.profilePicture}
           alt="profile"
           className="h-24 w-24 self-center cursor-pointer rounded-full object-cover mt-2"
           onClick={() => fileRef.current.click()}
