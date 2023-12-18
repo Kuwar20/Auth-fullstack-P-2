@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/router.js";
 import authRoutes from "./routes/authRoute.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 dotenv.config({ path: "../.env" }); // this is because .env file is outside of server folder, if it was in the server folder it is not required to give path
 
@@ -18,7 +19,15 @@ mongoose
                 console.log(err);
         });
 
+
+const __dirname = path.resolve();
+
 const app = express();
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 app.use(express.json()); // this is the middleware that will allow us to send json data to our server
 app.use(cookieParser()); // this is the middleware that will allow us to send cookies to our server
 
@@ -50,9 +59,9 @@ app.use((err, req, res, next) => {
         const statusCode = err.statusCode || 500;
         const message = err.message || 'internal server error';
         return res.status(statusCode).json({
-        success:false,
-        message,
-        statusCode,
+                success: false,
+                message,
+                statusCode,
         });
 }); // this is error handling middleware, it will catch all the errors and send it to the client))
 //now go to authctrl.js and change the server api fn of the signup route from authroute.js with this 'next' middlewear.
