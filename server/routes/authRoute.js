@@ -1,5 +1,5 @@
 import express from "express";
-import { google, signin, signup } from "../controllers/authCtrl.js";
+import { google, signin, signup, signout } from "../controllers/authCtrl.js";
 
 
 const router = express.Router();
@@ -22,5 +22,8 @@ router.post("/signin", signin)
 router.post("/google" , google)
 //made a api - http://localhost:3000/api/auth/google,
 //now make the google fn in authCtrl.js and import it here.
+
+router.get("/signout" , signout)
+
 
 export default router;
