@@ -1,5 +1,5 @@
 import express from "express";
-import { signin, signup } from "../controllers/authCtrl.js";
+import { google, signin, signup } from "../controllers/authCtrl.js";
 
 
 const router = express.Router();
@@ -17,5 +17,10 @@ router.post("/signin", signin)
 // we come here from index.js
 // as it is in api/auth so it will be http://localhost:3000/api/auth/signin.
 // now for signin fn we need to make signin fn in authCtrl.js and then import it here.
+
+
+router.post("/google" , google)
+//made a api - http://localhost:3000/api/auth/google,
+//now make the google fn in authCtrl.js and import it here.
 
 export default router;
