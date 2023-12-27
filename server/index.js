@@ -4,7 +4,14 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/router.js";
 import authRoutes from "./routes/authRoute.js";
 import cookieParser from "cookie-parser";
+import swaggerUi from "swagger-ui-express"; // for swagger
+import swaggerDocument1 from "../swagger.json" assert { type: "json" }; //for swagger
+
 import path from "path";
+
+// const swaggerUi = require("swagger-ui-express");
+// const swaggerDocument = require("./swagger/swagger.json")
+
 
 dotenv.config({ path: "../.env" }); // this is because .env file is outside of server folder, if it was in the server folder it is not required to give path
 
@@ -23,6 +30,9 @@ mongoose
 const __dirname = path.resolve();
 
 const app = express();
+
+app.use("/api-doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument1)); //for swagger
+// http://localhost:3000/api-doc/ - to check all the endpoints of this project in the swagger-ui browser 
 
 app.use(express.static(path.join(__dirname, "/client/dist")));
 app.get('*', (req, res) => {
