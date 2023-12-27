@@ -5,7 +5,7 @@
 -->
 <h1 align="center">Auth App</h1>
 <p align="center">
- <a href="https://mern-auth-pa2l.onrender.com/" target="_blank">Live</a> - Full Stack Mern Auth App using Tailwind CSS 
+ <a href="https://mern-auth-smmw.onrender.com/" target="_blank">Live</a> - Full Stack Mern Auth App using Tailwind CSS 
 </p>
 
 ## Demo
@@ -117,7 +117,17 @@ Folder Structure
 | server  | server | index.js | Entry point for Backend
 
 
-# Endpoints - 4
+# Endpoints 
+
+# Swagger Documentation
+
+Explore the comprehensive API documentation with Swagger : [Swagger API Documentation](https://mern-auth-smmw.onrender.com/api-doc/)
+
+---
+
+**Discover Key APIs - 4**
+
+---
 
 ## 1- SignUp
 
