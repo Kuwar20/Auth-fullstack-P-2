@@ -24,9 +24,9 @@ https://github.com/Kuwar20/Auth-fullstack-P-2/assets/66473902/d7e1dd7b-923b-4ced
 - [MongoDB](https://www.mongodb.com/)&nbsp; &nbsp;&nbsp;&nbsp;  - NoSQL database for storing application data
 - [Tailwind CSS](https://tailwindcss.com/)&nbsp; - Utility-first CSS framework for styling
 
-## Installation
+## Installation & Executing the website locally
 
-Use the package manager [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install Auth App.
+Use the package manager [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install Auth App - Installation
 
 ```bash
 npm install -g npm
@@ -35,58 +35,88 @@ Download this repo using
 ```bash
 git clone github-repo-url
 ```
+
+* Step-by-step Instruction - Frontend
+```bash
+Open a terminal
+
+# get inside root dir
+cd Auth-fullstack-P-2
+
+# get into client dir
+cd client
+
+# install the dependencies 
+npm install
+
+# run client-side
+npm run dev
+```
+
+* Step-by-step Instruction - Backend
+```bash
+Open another terminal
+
+# get inside root dir
+cd Auth-fullstack-P-2
+
+# install the dependencies 
+npm install
+
+# get into server dir
+cd server
+
+# run server-side
+node .
+```
+* Note
+```text
+For running this project locally, note that certain functionalities will be unavailable due to the absence of environment variables
+file specified in the .gitignore file to exclude sensitive information like API keys, Database URI. Ensure you have the necessary
+configuration in your local environment.
+```
+
 Folder Structure 
 ============================
 
 > The project was made with the intent of hosting it on Render, Thus shaping it's current folder structure .
 ### Top-level directory layout
 
-    .
-    ├── client                   # React application source code
-    │   │ 
-    │   ├── src                      # React components and assets
-    │        │ 
-    |        ├── components                # React components and assets
-    |        ├── pages                     # Individual pages of the application
-    |        ├── redux                     # Redux-related files (actions, reducers)
-    |        └── App.jsx                   # Main React application component
-    │   
-    ├── server                   # Node.js server files
-    │   │ 
-    │   ├── controllers              # Server-side controllers
-    │   ├── models                   # Database models
-    │   ├── routes                   # API routes
-    │   ├── utils                    # Utility functions
-    │   └── index.js                 # Main server file
-    │   
-    └── README.md 
 
+      Auth-fullstack-P-2
+              │
+              │
+              │
+              ├── client                   # React application source code
+              │   │ 
+              │   ├── src                      # React components and assets
+              │        │ 
+              |        ├── components                # React components and assets
+              |        ├── pages                     # Individual pages of the application
+              |        ├── redux                     # Redux-related files (actions, reducers)
+              |        └── App.jsx                   # Main React application component
+              │   
+              ├── server                   # Node.js server files
+              │   │ 
+              │   ├── controllers              # Server-side controllers
+              │   ├── models                   # Database models
+              │   ├── routes                   # API routes
+              │   ├── utils                    # Utility functions
+              │   └── index.js                 # Main server file
+              │   
+              │ 
+              ├── swagger-autogen.js       # Swagger documentation Script
+              ├── swagger.json             # API documentation
+              └── README.md
 
+        
+         
 | Main | Folder | File Name | Details 
 |----|--------|------|-------|
 | client  | src | App.jsx | Entry point for Frontend
 | server  | server | index.js | Entry point for Backend
 
-## Executing program
-* Step-by-step Instruction
 
-```python
-Open a terminal
-
-# get into client dir
-cd client
-
-# run client-side
-npm run dev
-
-Open another terminal
-
-# get inside server dir
-cd server
-
-# run server-side
-node .
-```
 # Endpoints - 4
 
 ## 1- SignUp
