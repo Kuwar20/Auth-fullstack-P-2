@@ -11,7 +11,12 @@
 ## Demo
 
 Watch a video showcasing the project in action : 
+```plaintext
+# Project Demo Flow:
 
+(0:05) Project Main Page -> Check About Page -> Sign Up (Create Account) -> Successful Signup Leads to Sign In Page -> Check Created Account in Signup in MongoDB -> Also Check the Password Stored in MongoDB as Encrypted -> Use the Signin Account Details to Sign In -> Project Main Page -> Profile Page Instead of Signin or Signup Page -> Update Details from the Profile Page and Check Changes in MongoDB -> Upload Photo -> Update Photo (Reflects Throughout Components) -> Sign Out
+(1:58) Sign In with Updated User Details -> Project Main Page -> Delete the Created Account -> Verify Deletion in MongoDB -> Go to Project Main Page without Signin with Google Login -> Select a Gmail to Login -> Check Auto-Generated User Details in the Profile Page -> Verify in MongoDB
+```
 https://github.com/Kuwar20/Auth-fullstack-P-2/assets/66473902/d7e1dd7b-923b-4ced-917a-f6b1a3044bb9
 
 
