@@ -12,7 +12,7 @@
 
 Watch a video showcasing the project in action : 
 ```plaintext
-# Project Demo Flow:
+# Project Demo Timestamp/Flow:
 
 (0:05) Project Main Page -> Check About Page -> Sign Up (Create Account) -> Successful Signup Leads to Sign In Page -> Check Created Account in Signup in MongoDB -> Also Check the Password Stored in MongoDB as Encrypted -> Use the Signin Account Details to Sign In -> Project Main Page -> Profile Page Instead of Signin or Signup Page -> Update Details from the Profile Page and Check Changes in MongoDB -> Upload Photo -> Update Photo (Reflects Throughout Components) -> Sign Out
 (1:58) Sign In with Updated User Details -> Project Main Page -> Delete the Created Account -> Verify Deletion in MongoDB -> Go to Project Main Page without Signin with Google Login -> Select a Gmail to Login -> Check Auto-Generated User Details in the Profile Page -> Verify in MongoDB
